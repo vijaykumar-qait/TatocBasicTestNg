@@ -16,7 +16,7 @@ import com.qait.generalFunction.GeneralActions;
 import com.qait.generalFunction.Utility;
 
 
-public class TatobBasicTest {
+public class TatocBasicTest {
 	WebDriver webdriver;
 	GeneralActions actions;
 //--------------------------------------------------------------------------------------	
@@ -32,8 +32,6 @@ public class TatobBasicTest {
 	public void verifyHomepageTitle() {
 		String expectedTitle= "TAP Utility Server";
 		String actualTitle = webdriver.getTitle();
-		System.out.println(actualTitle);
-		System.out.println(expectedTitle);
 		Assert.assertEquals(actualTitle, expectedTitle);
 
 	}
@@ -43,8 +41,6 @@ public class TatobBasicTest {
 		webdriver.findElement(By.partialLinkText("tatoc")).click(); 
 		String expectedTitle= "Welcome - T.A.T.O.C";
 		String actualTitle = webdriver.getTitle();
-		System.out.println(actualTitle);
-		System.out.println(expectedTitle);
 		Assert.assertEquals(actualTitle, expectedTitle);
 
 	}
@@ -57,8 +53,6 @@ public class TatobBasicTest {
 		webdriver.findElement(By.linkText("Basic Course")).click();
 		String expectedTitle= "Grid Gate - Basic Course - T.A.T.O.C";
 		String actualTitle = webdriver.getTitle();
-		System.out.println(actualTitle);
-		System.out.println(expectedTitle);
 		Assert.assertEquals(actualTitle, expectedTitle);
 
 	}
@@ -109,7 +103,6 @@ public class TatobBasicTest {
 		 webdriver.switchTo().frame("child");
 		 WebElement box2= webdriver.findElement(By.cssSelector("#answer"));
 		 String color1 = box2.getAttribute("class");
-		 System.out.println(color1);
 		 webdriver.switchTo().parentFrame();
 		 webdriver.findElement(By.partialLinkText("Repaint Box 2")).click();
 		 webdriver.switchTo().frame("child");
@@ -147,8 +140,6 @@ public class TatobBasicTest {
 	 public void verifyDragAroundPage() {
 			String expectedTitle= "Drag - Basic Course - T.A.T.O.C";
 			String actualTitle = webdriver.getTitle();
-			System.out.println(actualTitle);
-			System.out.println(expectedTitle);
 			Assert.assertEquals(actualTitle, expectedTitle);
 	 }
 	 
@@ -198,13 +189,12 @@ public class TatobBasicTest {
 	 }
 	 
 //-------------------------------------------------------------------------------------
-	//Popup - Basic Course - T.A.T.O.C
+	 //Part 4
+	 //Popup - Basic Course - T.A.T.O.C
 	 @Test(description= "Whether Proceeded to Windows Page")
 	 public void popupWindowsPage() {
 		 String expectedTitle= "Windows - Basic Course - T.A.T.O.C";
 		 String actualTitle = webdriver.getTitle();
-		 System.out.println(actualTitle);
-		 System.out.println(expectedTitle);
 		 Assert.assertEquals(actualTitle, expectedTitle);
 	 }
 	 
@@ -242,13 +232,12 @@ public class TatobBasicTest {
 		 webdriver.findElement(By.linkText("Proceed")).click();
 	 }
 //------------------------------------------------------------------------------------
-	//Cookie Handling
+	 //Part 5
+	 //Cookie Handling
 	 @Test(description= "Whether Proceeded to Cookie Handling Page")
 	 public void CookieHandlingPage() {
 		 String expectedTitle= "Cookie Handling - Basic Course - T.A.T.O.C";
 		 String actualTitle = webdriver.getTitle();
-		 System.out.println(actualTitle);
-		 System.out.println(expectedTitle);
 		 Assert.assertEquals(actualTitle, expectedTitle);
 	 }
 	 
@@ -262,7 +251,6 @@ public class TatobBasicTest {
 		 webdriver.manage().addCookie(cookie);
 		 
 		 String actualCookieValue= (String)((JavascriptExecutor)webdriver).executeScript("return document.cookie");
-		 //webdriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		 Assert.assertEquals(actualCookieValue, expectedCookieValue);
 		 webdriver.findElement(By.partialLinkText("Proceed")).click();
 	 }
